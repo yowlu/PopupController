@@ -4,7 +4,8 @@
 [![License](https://img.shields.io/cocoapods/l/PopupController.svg?style=flat)](http://cocoapods.org/pods/PopupController)
 [![Platform](https://img.shields.io/cocoapods/p/PopupController.svg?style=flat)](http://cocoapods.org/pods/PopupController)  
   
-*PopupController* is a controller for showing temporary popup view.  
+*PopupController* is a controller for showing temporary popup view. 
+For 4.2 
   
 <p align="center">
 <img src="https://github.com/daisuke310vvv/PopupController/blob/master/screenshots/ss01.jpg" width="250px" />
