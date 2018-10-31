@@ -37,7 +37,7 @@ class DemoPopupViewController1: UIViewController, PopupContentViewController {
     }
     
     func sizeForPopup(_ popupController: PopupController, size: CGSize, showingKeyboard: Bool) -> CGSize {
-        return CGSize(width: 300,height: 300)
+        return CGSize(width: UIScreen.main.bounds.width,height: 300)
     }
     
     @IBAction func didTapCloseButton(_ sender: AnyObject) {

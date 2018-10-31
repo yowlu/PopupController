@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBAction func didTapButton(_ sender: AnyObject) {
         PopupController
             .create(self)
+            .customize([.layout(.bottom),.animation(.slideUp)])
             .show(DemoPopupViewController1.instance())
     }
     
@@ -60,7 +61,7 @@ class ViewController: UIViewController {
         }
         
         let container = DemoPopupViewController3.instance()
-        container.closeHandler = { _ in
+        container.closeHandler = {
             popup.dismiss()
         }
         
@@ -87,7 +88,7 @@ class ViewController: UIViewController {
         }
 
         let container = DemoPopupViewController4.instance()
-        container.closeHandler = { _ in
+        container.closeHandler = {
             popup.dismiss()
         }
 
