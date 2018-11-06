@@ -295,15 +295,22 @@ private extension PopupController {
     }
     
     func didClosePopup() {
+        
         popupView.endEditing(true)
         popupView.removeFromSuperview()
         
-        children.forEach { $0.removeFromParent() }
+        children.forEach {
+            $0.willMove(toParent: nil)
+            $0.view.removeFromSuperview()
+            $0.removeFromParent()
+        }
         
-        view.isHidden = true
-        self.closedHandler?(self)
-        
+        self.willMove(toParent: nil)
+        self.view.removeFromSuperview()
         self.removeFromParent()
+        
+        self.closedHandler?(self)
+
     }
     
     func show(_ layout: PopupLayout, animation: PopupAnimation, completion: @escaping PopupAnimateCompletion) {

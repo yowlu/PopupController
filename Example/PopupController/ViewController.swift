@@ -15,6 +15,12 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("viewWillAppear---")
+    }
+    
     @IBAction func didTapButton(_ sender: AnyObject) {
         PopupController
             .create(self)
