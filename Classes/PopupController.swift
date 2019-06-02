@@ -33,14 +33,22 @@ public protocol PopupContentViewController {
 
 open class PopupController: UIViewController {
     
+    open var hasSafeArea: Bool {
+        guard #available(iOS 11.0, *), let topPadding = UIApplication.shared.keyWindow?.safeAreaInsets.top, topPadding > 24 else {
+            return false
+        }
+        return true
+    }
+    
     public enum PopupLayout {
-        case top, center, bottom
+        case top, center, bottom, realCenter
         
         func origin(_ view: UIView, size: CGSize = UIScreen.main.bounds.size) -> CGPoint {
             switch self {
             case .top: return CGPoint(x: (size.width - view.frame.width) / 2, y: 0)
             case .center: return CGPoint(x: (size.width - view.frame.width) / 2, y: (size.height - view.frame.height) / 2)
             case .bottom: return CGPoint(x: (size.width - view.frame.width) / 2, y: size.height - view.frame.height)
+            case .realCenter: return CGPoint(x: (size.width - view.frame.width) / 2, y: ((size.height - view.frame.height) / 2) - 32 - (hasSafeArea ? 12 : 0))
             }
         }
     }
